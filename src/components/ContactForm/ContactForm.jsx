@@ -1,33 +1,30 @@
 import { Form, Input, AddBtnContact } from './ContactForm.styled';
-import { useDispatch /* , useSelector */ } from 'react-redux';
-/* import { selectContacts } from 'redux/selectors'; */
+import { useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from 'redux/operations';
+import { selectNameArr } from 'redux/selectors';
 
 export const ContactForm = () => {
-  /* const noticedContacts = useSelector(selectContacts); */
+  const nameArr = useSelector(selectNameArr);
 
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
     const name = e.currentTarget.elements.name.value;
-    const phone = e.currentTarget.elements.number.value;
-    /* const newContact = {
-      name: e.currentTarget.elements.name.value,
-      phone: e.currentTarget.elements.number.value,
-    }; */
-
-    /* const names = noticedContacts.map(contact => contact.name.toLowerCase());
-    const lowerCaseName = newContact.name.toLowerCase();
-    if (names.indexOf(lowerCaseName) >= 0) {
-      alert(newContact.name + 'is already in contacts');
+    const number = e.currentTarget.elements.number.value;
+    const inputedName = name.toLowerCase().trim();
+    if (nameArr.indexOf(inputedName) >= 0) {
+      toast.error(inputedName + ' is already in contacts.');
       return;
-    } */
+    }
     dispatch(
       addContact({
         name,
-        phone,
+        number,
       })
     );
+    toast.success(`Contact ${name} is added!`);
     e.currentTarget.reset();
   };
 
@@ -61,6 +58,7 @@ export const ContactForm = () => {
         </div>
       </label>
       <AddBtnContact type="submit">Add contact</AddBtnContact>
+      <ToastContainer />
     </Form>
   );
 };

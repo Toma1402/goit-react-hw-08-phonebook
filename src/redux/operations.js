@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://63f7afc2e40e087c959428b0.mockapi.io';
+/* const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+}; */
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -19,6 +26,7 @@ export const addContact = createAsyncThunk(
   async (contactData, thunkAPI) => {
     try {
       const resp = await axios.post('/contacts', contactData);
+
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
