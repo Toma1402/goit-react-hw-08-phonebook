@@ -1,6 +1,9 @@
+import { RemoveBtn } from 'components/ContactItem/ContactItem.styled';
+import { FormBtn } from 'pages/Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/auth-operations';
 import { selectUsername } from 'redux/auth/auth-selectors';
+import { UserBar, UserText } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -10,11 +13,11 @@ export const UserMenu = () => {
   };
   console.log(name);
   return (
-    <div>
-      <p>
+    <UserBar>
+      <UserText>
         Welcome, <span>{name}</span>{' '}
-      </p>
-      <button onClick={handleClick}>Log out</button>
-    </div>
+      </UserText>
+      <RemoveBtn onClick={handleClick}>Log out</RemoveBtn>
+    </UserBar>
   );
 };

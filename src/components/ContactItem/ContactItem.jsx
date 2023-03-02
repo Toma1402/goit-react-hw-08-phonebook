@@ -1,10 +1,11 @@
+import { FormBtn } from 'pages/Form.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { deleteContact } from 'redux/operations';
 
-import { ListItem, RemoveBtnContact } from './ContactItem.styled';
+import { ContactName, ListItem, RemoveBtn } from './ContactItem.styled';
 export const ContactItem = ({ name, idx, number }) => {
   const dispatch = useDispatch();
   const handleRemove = () => {
@@ -13,12 +14,12 @@ export const ContactItem = ({ name, idx, number }) => {
   };
   return (
     <ListItem>
-      <p>
+      <ContactName>
         {name}: {number}
-      </p>
-      <RemoveBtnContact type="button" onClick={handleRemove}>
+      </ContactName>
+      <RemoveBtn type="button" onClick={handleRemove}>
         Remove
-      </RemoveBtnContact>
+      </RemoveBtn>
       <ToastContainer />
     </ListItem>
   );

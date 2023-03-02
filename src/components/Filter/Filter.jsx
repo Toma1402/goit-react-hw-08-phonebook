@@ -1,7 +1,8 @@
+import { Input, StyledForm } from 'pages/Form.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
-import { FilterLabel, FilterInput } from './Filter.styled';
+
 export const Filter = () => {
   const dispatch = useDispatch();
   let queryFilter;
@@ -10,12 +11,22 @@ export const Filter = () => {
     dispatch(setFilter(queryFilter));
   };
   return (
-    <>
-      <FilterLabel>
-        Find contacts by name
-        <FilterInput type="text" value={queryFilter} onChange={handleChange} />
-      </FilterLabel>
-    </>
+    <StyledForm
+      style={{
+        width: '280px',
+        backgroundColor: 'rgba(0,0,0,0',
+        marginBottom: '0',
+        marginTop: '0',
+      }}
+    >
+      <label htmlFor="fContact">Find contacts by name</label>
+      <Input
+        id="fContact"
+        type="text"
+        value={queryFilter}
+        onChange={handleChange}
+      />
+    </StyledForm>
   );
 };
 Filter.propTypes = {

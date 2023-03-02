@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 import { GiNotebook } from 'react-icons/gi';
-export const StyledHomePage = styled.main``;
+export const StyledHomePage = styled.main`
+  margin-top: 50px;
+  margin-bottom: 50px;
+`;
 export const Section = styled.section`
   max-width: 1280px;
   margin-left: auto;
@@ -38,8 +41,10 @@ export const TextBox = styled.div`
 `;
 
 export const StyledIcon = styled(GiNotebook)`
+  display: block;
   width: 70px;
   height: 80px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
 `;

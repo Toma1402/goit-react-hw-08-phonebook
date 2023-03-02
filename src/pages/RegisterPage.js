@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
+import { Form, FormBtn, Input, StyledForm } from './Form.styled';
+import { Formik, Field, ErrorMessage } from 'formik';
 
 export const Register = () => {
   const dispatch = useDispatch();
@@ -14,35 +16,32 @@ export const Register = () => {
     e.currentTarget.reset();
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Enter your name
-        <input
-          autoComplete="true"
-          type="text"
-          name="name"
-          placeholder="name..."
-        />
-      </label>
-      <label>
-        Enter your login or email
-        <input
-          autoComplete="true"
-          type="text"
-          name="login"
-          placeholder="login or email..."
-        />
-      </label>
-      <label>
-        Enter your password
-        <input
-          autoComplete="true"
-          type="password"
-          name="password"
-          placeholder="password..."
-        />
-      </label>
-      <button>Register</button>
-    </form>
+    <StyledForm onSubmit={handleSubmit}>
+      <label htmlFor="rName">Enter your name</label>
+      <Input
+        id="rName"
+        autoComplete="true"
+        type="text"
+        name="name"
+        placeholder="Name..."
+      />
+      <label htmlFor="rLogin">Enter your email</label>
+      <Input
+        id="rLogin"
+        autoComplete="true"
+        type="text"
+        name="login"
+        placeholder="Email..."
+      />
+      <label htmlFor="rPassword">Enter your password</label>
+      <Input
+        id="rPassword"
+        autoComplete="true"
+        type="password"
+        name="password"
+        placeholder="Password..."
+      />
+      <FormBtn type="submit">Sign up</FormBtn>
+    </StyledForm>
   );
 };

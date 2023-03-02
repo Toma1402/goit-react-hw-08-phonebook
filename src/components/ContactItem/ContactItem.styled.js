@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 export const ListItem = styled.li`
   display: flex;
-  margin-bottom: 10px;
-  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
 `;
-export const RemoveBtnContact = styled.button`
+export const ContactName = styled.p`
+  font-size: 22px;
+`;
+export const RemoveBtn = styled.button`
+  display: block;
   width: 100px;
-
-  padding: 4px;
-  background-color: #e5c3ad;
-  border: 1px solid #baa08e;
-  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  margin-left: auto;
+  padding: 8px;
+  cursor: pointer;
 `;

@@ -4,6 +4,8 @@ import { Filter } from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
+import { AddTitle, InputSection, PageSection } from './ContactsPage.styled';
+import { StyledIcon } from './HomePage.styled';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -11,10 +13,14 @@ export const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <div>
-      <ContactForm />
-      <Filter />
+    <PageSection>
+      <InputSection>
+        <StyledIcon />
+        <AddTitle>Add your contact</AddTitle>
+        <ContactForm />
+        <Filter />
+      </InputSection>
       <ContactList />
-    </div>
+    </PageSection>
   );
 };
