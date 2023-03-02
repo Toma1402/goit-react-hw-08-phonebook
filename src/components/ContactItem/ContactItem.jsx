@@ -1,4 +1,3 @@
-import { FormBtn } from 'pages/Form.styled';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
